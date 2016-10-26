@@ -3,14 +3,20 @@
 
   angular.module('login').controller('LoginController', controller);
 
-  controller.$inject = ['LoginService'];
+  controller.$inject = ['$window', 'LoginService'];
 
-  function controller(loginService) {
+  function controller($window, loginService) {
     const vm = this;
 
     vm.authenticate = (user) => {
-        console.log(user);
-        console.log(loginService);
+        loginService.authenticate(user)
+        .then(() => {
+            $window.location.href = 'index';
+
+        })
+        .catch(() => {
+            vm.invalidUser = true;
+        });
     };
   }
 

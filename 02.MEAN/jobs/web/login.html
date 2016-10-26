@@ -13,9 +13,14 @@
     <label for="password"> Password</label>
     <input type="password" id="password" required data-ng-model="vm.user.password">
 
+    <br>
+      <p data-ng-if="vm.invalidUser">Usuario ou senha invalidos</p>
+    <br>
     <button type="submit">Login</button>
   </form>
     <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.8/angular.min.js"></script>
+    <script src="js/config-app.js"></script>
+    <script src="js/config/api-config.js"></script>
     <script src="js/login-app.js"></script>
     <script src="js/services/login-service.js"></script>
     <script src="js/controllers/login-controller.js"></script>
